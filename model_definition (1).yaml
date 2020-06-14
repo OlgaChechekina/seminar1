@@ -1,0 +1,69 @@
+input_features:
+    -
+        name: meanfreq
+        type: numerical
+    -
+        name: sd
+        type: numerical
+    -
+        name: median
+        type: numerical
+    -
+        name: Q25
+        type: numerical
+    -
+        name: Q75
+        type: numerical
+    -
+        name: IQR
+        type: numerical
+    -
+        name: skew
+        type: numerical
+    -
+        name: kurt
+        type: numerical
+    -
+        name: sp.ent
+        type: numerical
+    -
+        name: sfm
+        type: numerical
+    -
+        name: mode
+        type: numerical
+    -
+        name: centroid
+        type: numerical
+    -
+        name: meanfun
+        type: numerical
+    -
+        name: minfun
+        type: numerical
+    -
+        name: maxfun
+        type: numerical
+    -
+        name: meandom
+        type: numerical
+    -
+        name: mindom
+        type: numerical
+    -
+        name: maxdom
+        type: numerical
+    -
+        name: dfrange
+        type: numerical
+    -
+        name: modindx
+        type: numerical
+        
+output_features:
+    -
+        name: label
+        type: binary
+
+
+        

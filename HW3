@@ -1,0 +1,93 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.datasets import make_blobs, make_circles
+from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
+def apply_clustering(model1, model2, model3):    
+    res = []
+    plt.figure(figsize = (16, 16))
+    X, y = make_blobs(n_samples = 500, centers = 3, cluster_std = 1.2, random_state = 1)
+    y1_pred = model1.fit_predict(X)
+    plt.subplot(331)
+    plt.scatter(X[:, 0], X[:,1], c = y1_pred)
+    res.append(y1_pred)
+    plt.axis('equal')
+    plt.title('Kmeans')
+    
+
+    transform = [[0.6, -0.6], [-0.4, 0.85]] # матрица для растяжения кучек
+    X_trans = np.dot(X, transform)
+
+    plt.subplot(332)
+    y1_pred = model1.fit_predict(X_trans)
+    plt.scatter(X_trans[:, 0], X_trans[:, 1], c = y1_pred)
+    plt.axis('equal')
+    plt.title('Kmeans')
+    
+   
+    X_circle, y_circle = make_circles(n_samples = 500, noise = 0.1, factor = 0.3)
+    plt.subplot(333)
+    y1_pred = model1.fit_predict(X_circle)
+    plt.scatter(X_circle[:, 0], X_circle[:, 1], c = y1_pred)
+    plt.axis('equal')
+    plt.title('Kmeans')
+   
+   
+    X, y = make_blobs(n_samples = 500, centers = 3, cluster_std = 1.2, random_state = 1)
+    y2_pred = model2.fit_predict(X)
+    plt.subplot(334)
+    plt.scatter(X[:, 0], X[:,1], c = y2_pred)
+    res.append(y2_pred)
+    plt.axis('equal')
+    plt.title('DBSCAN')
+    
+
+    transform = [[0.6, -0.6], [-0.4, 0.85]] # матрица для растяжения кучек
+    X_trans = np.dot(X, transform)
+
+    plt.subplot(335)
+    y2_pred = model2.fit_predict(X_trans)
+    plt.scatter(X_trans[:, 0], X_trans[:, 1], c = y2_pred)
+    plt.axis('equal')
+    plt.title('DBSCAN')
+    
+   
+    X_circle, y_circle = make_circles(n_samples = 500, noise = 0.1, factor = 0.3)
+    plt.subplot(336)
+    y2_pred = model2.fit_predict(X_circle)
+    plt.scatter(X_circle[:, 0], X_circle[:, 1], c = y2_pred)
+    plt.axis('equal')
+    plt.title('DBSCAN')
+    
+  
+    
+    
+    X, y = make_blobs(n_samples = 500, centers = 3, cluster_std = 1.2, random_state = 1)
+    y3_pred = model3.fit_predict(X)
+    plt.subplot(337)
+    plt.scatter(X[:, 0], X[:,1], c = y3_pred)
+    res.append(y3_pred)
+    plt.axis('equal')
+    plt.title('Agglomerative Clustering')
+    
+   
+
+    transform = [[0.6, -0.6], [-0.4, 0.85]] # матрица для растяжения кучек
+    X_trans = np.dot(X, transform)
+
+    plt.subplot(338)
+    y3_pred = model3.fit_predict(X_trans)
+    plt.scatter(X_trans[:, 0], X_trans[:, 1], c = y3_pred)
+    plt.axis('equal')
+    plt.title('Agglomerative Clustering')    
+    
+   
+    X_circle, y_circle = make_circles(n_samples = 500, noise = 0.1, factor = 0.3)
+    plt.subplot(339)
+    y3_pred = model3.fit_predict(X_circle)
+    plt.scatter(X_circle[:, 0], X_circle[:, 1], c = y3_pred)
+    plt.axis('equal')
+    plt.title('Agglomerative Clustering')
+    
+    return res
+    
+  
